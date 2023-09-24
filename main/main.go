@@ -15,7 +15,6 @@ func getInfo(message string) (string, error) {
 	reader := bufio.NewReader(os.Stdin)
 	input, err := reader.ReadString('\n')
 	if err != nil {
-		fmt.Println("An error occured while reading input. Please try again", err)
 		return "", fmt.Errorf("An error occured while reading input: %v", err)
 	}
 	input = strings.TrimSuffix(input, "\n")
@@ -36,7 +35,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err.Error())
 	}
-	sessionLength, err := getInfo("Enter length of session in minutes: ")
+	sessionLength, err := getInfo("Enter duration of each round in minutes: ")
 	if err != nil {
 		log.Fatal(err.Error())
 	}
